@@ -113,9 +113,21 @@ words(1);
 	  2) Если аргментов нет то функция возвращает 0, если аргмент undefined то возвращает 0. 
 	  3) Дополнительное задание: реализовать функцию function f(x) как стрелочную.*/
 
-// function f(x) {
-//   let x;
-// }
+function f(x) {
+  return 0;
+}
+console.log(f());
+
+function f() {
+  return '0';
+}
+console.log(f());
+
+let f = (x) => (0);
+console.log(f());
+
+let f = () => 0;
+console.log(f());
 
 /* 10. Написать функцию  sum(a, b), которая возвращает сумму переданных ей аргументов. Реализовать с помощью function declaration и с помощью стрелочной функции. !!!Использовать цикл "for in" если это возможно.*/
 
@@ -147,25 +159,164 @@ console.log(sum);
 
 /* 11. Дан массив [1, 2, 56, 28, 90, 5, 6]. Отсортировать массив в порядке возрастания его элементов. В отсортированном массиве используя метод indexof вывести индекс элемента со значением "6". */
 
-function compareNumeric(a, b) {
-  if (a > b) return 1;
-  if (a == b) return 0;
-  if (a < b) return -1;
-}
-
 let arr = [1, 2, 56, 28, 90, 5, 6];
-arr.sort(compareNumeric);
+arr.sort((a, b) => a - b);
 console.log(arr);
 
 arr.indexOf(6);
-console.log(searchIndex);
-
 
 /* 12. Задание с прошлых занятий. Создать массив объектов для юзеров [{name: ‘Ivan’, age: 18}, {name: ‘Petr’, age: 12}, {name: ‘Sidor’, age: 25}, {name: ‘Pavel’, age: 24}, {name: ‘Sasha’, age: 29}]
-	  Написать скрипт, который будет на выходе отдавать два массива. Первый с совершеннолетними пользователями, второй с несовершеннолетними.
-	  !Использовать метод filter. Полученные на выходе два массива отсортировать (каждый из них в отдельности) 
-           по старшинству членов (от самого старшего к самому младшему).*/
+Написать скрипт, который будет на выходе отдавать два массива. Первый с совершеннолетними пользователями, второй с несовершеннолетними. !Использовать метод filter. Полученные на выходе два массива отсортировать (каждый из них в отдельности) по старшинству членов (от самого старшего к самому младшему).*/
+
+  let users = [
+    {name: 'Ivan', age: 18}, 
+    {name: 'Petr', age: 12}, 
+    {name: 'Sidor', age: 25}, 
+    {name: 'Pavel', age: 24}, 
+    {name: 'Sasha', age: 29}
+  ];
+
+  let adults = users.filter(user => user.age >= 18);
+  console.log(adults);
+
+  adults.sort((a, b) => b.age - a.age);
+  console.log(adults);
+
+  let underage = users.filter(user => user.age < 18);
+  console.log(underage);
 
 /* 13. Расширить предыдущее задание так чтобы из исходного массива удалялись все несовершенолетние пользователи. */
 
+let users = [
+  {name: 'Ivan', age: 18}, 
+  {name: 'Petr', age: 12}, 
+  {name: 'Sidor', age: 25}, 
+  {name: 'Pavel', age: 24}, 
+  {name: 'Sasha', age: 29}
+];
+// не смогла придумать как удалять 
+let underage = users.find(user => user.age < 18);
+console.log(users);
+
 /* 14. Дан массив var arr = [1, 10, 25, 67, 87, 56]. Добавить в конец массива число 4. Вывести полученный массив и в переменную leng сохранить его новую длину. Из полученного массива извлечь последний элемент. Извлеченный элемент добавить вначало массива.*/
+
+  let arr = [1, 10, 25, 67, 87, 56];
+  let leng = arr.push(4);
+  console.log(arr);
+  console.log(leng);
+
+  let lastElement = arr.pop();
+  arr.unshift(lastElement);
+  console.log(arr);
+
+/* 15. Дан массив var arr1 = [2, 5, 90, 4]. Объединить данный массив с массивом из предыдущего задания (с учетом тех изменений, которые вы с ним уже произвели в том задании ) и записать результат в переменную arr2. Сами массивы arr и arr1 должны остаться неизмененными.*/
+
+let arr = [1, 10, 25, 67, 87, 56];
+let leng = arr.push(4);
+let lastElement = arr.pop();
+arr.unshift(lastElement);
+
+// + действия по условию
+let arr1 = [2, 5, 90, 4];
+
+let arr2 = arr.concat(arr1);
+console.log(arr2);
+
+
+/* 16. В образовавшемся массиве arr2 определить положение числа 90 (ее индекс) и удалить ее из массива. Вместо 90 добавить в массив числа 19, 2, 91.*/
+
+let arr = [1, 10, 25, 67, 87, 56];
+let leng = arr.push(4);
+let lastElement = arr.pop();
+arr.unshift(lastElement);
+
+let arr1 = [2, 5, 90, 4];
+
+let arr2 = arr.concat(arr1);
+console.log(arr2);
+arr2.indexOf(90);
+
+// + действия по условию
+arr2.splice(9, 1, 19, 2, 91);
+console.log(arr2);
+
+/* 17. В измененном массиве arr2 извлечь последние 4 элемента с конца и записать их в массив arr3. Сам массив arr2 не должен
+измениться (извлеченные из него элементы должны в нем остаться). Массив arr3 отсортировать по возрастанию.*/
+
+let arr = [1, 10, 25, 67, 87, 56];
+let leng = arr.push(4);
+let lastElement = arr.pop();
+arr.unshift(lastElement);
+
+let arr1 = [2, 5, 90, 4];
+
+let arr2 = arr.concat(arr1);
+console.log(arr2);
+arr2.indexOf(90);
+
+arr2.splice(9, 1, 19, 2, 91);
+console.log(arr2);
+
+// + действия по условию
+let arr3 = arr2.slice(-4);
+console.log(arr3);
+
+arr3.sort((a, b) => a - b);
+console.log(arr3);
+
+/* 18. Отсортировать массив arr2 по убыванию. Посчитать сумму его элементов. (Попробуйте использовать метод reduce в статье про методы есть его описание).*/
+
+let arr = [1, 10, 25, 67, 87, 56];
+let leng = arr.push(4);
+let lastElement = arr.pop();
+arr.unshift(lastElement);
+
+let arr1 = [2, 5, 90, 4];
+
+let arr2 = arr.concat(arr1);
+console.log(arr2);
+arr2.indexOf(90);
+
+arr2.splice(9, 1, 19, 2, 91);
+console.log(arr2);
+
+// + действия по условию
+arr2.sort((a, b) => b - a);
+console.log(arr2);
+
+let sumArr2 = arr2.reduce((a, b) => (a + b));
+console.log(sumArr2);
+
+/* 19. Дан массив пользователей. var users = [
+{id: 1, name: "Вася", age: 20},
+{id: 2, name: "Петя", age: 19},
+{id: 3, name: "Маша", age: 18}
+];
+Добавить в этот маccив еще одного пользователя {id: 4, name: "Дима", age: 17}. Инвертируйте данный массив и выведите возраст пользователя с именем "Петя".*/
+
+let users = [
+  {id: 1, name: "Вася", age: 20},
+  {id: 2, name: "Петя", age: 19},
+  {id: 3, name: "Маша", age: 18}
+  ];
+
+  users.push({id: 4, name: "Дима", age: 17});
+  console.log(users);
+
+  users.reverse();
+  console.log(users);
+  let p = users.find(user => user.name == 'Петя');
+  console.log(p.age);
+
+/* 20. В массиве users посчитайте общий суммарный возраст всех пользователей.*/
+
+let users = [
+  {id: 1, name: "Вася", age: 20},
+  {id: 2, name: "Петя", age: 19},
+  {id: 3, name: "Маша", age: 18}
+  ];
+
+users.push({id: 4, name: "Дима", age: 17});
+console.log(users);
+
+users.reduce((a, user) => a + user.age, 0);
