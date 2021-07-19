@@ -40,10 +40,9 @@ let arrays = [[1, 2, 3], [4, 5], [6]];
 
 let newArr = arrays.reduce((a, b) => {
   return a.concat(b);
-}, );
+});
 
-console.log( newArr );
-
+console.log(newArr);
 
 /* 4. Создайте функцию-конструктор houseBuilder, которая позволяет создавать объект дачного дома с параметрами ширины длины и количества этажей. Создайте два объекта firstHouse и secondHouse на основании этой функции конструктора. (Длина, ширина, количество этажей - числовой тип данных, значения придумайте сами). */
 
@@ -53,17 +52,19 @@ function HouseBuilder(length, width, floors) {
   this.floors = floors;
 }
 
-let firstHouse = new HouseBuilder(100, 200, 5);
-let secondHouse = new HouseBuilder(500, 250, 9);
+let firstHouse = new HouseBuilder(1000, 2000, 2);
+let secondHouse = new HouseBuilder(5000, 2500, 3);
 
 console.log(firstHouse);
 console.log(secondHouse);
 
 /* 5. Создайте метод calcArea который будет возвращать суммарную площадь всех этажей дома. Данный метод занести в прототип конструктора. Вызвать данный метод на каждом созданном объекте и результат записать в поле totalArea каждого объекта.*/
 
-HouseBuilder.prototype.calcArea = function() {
-  console.log(this.totalArea = this.height * this.width * this.floors);
-}
+HouseBuilder.prototype.calcArea = function () {
+  this.totalArea = function () {
+    return this.height * this.width * this.floors;
+  };
+};
 
 firstHouse.calcArea();
 secondHouse.calcArea();
