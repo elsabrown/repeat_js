@@ -78,7 +78,7 @@ let usersAfterYear = users
 console.log(usersAfterYear);
 
 let usersAfterYearUniqueAge = usersAfterYear.reduce((users, user) => {
-  //здесь должно быть что-то
+  //через findIndex вместо indexOf
   if {
     users.push(user);
   }
