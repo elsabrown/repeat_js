@@ -136,7 +136,7 @@ console.log(nadya.city);
 /* 8. Создайте функцию, которая позовляет вывести полную информацию о каждом из двух пользователей созданных в предыдущем задании. Функция должна выполнять вывод информации и не принимать аргументов. По сути нужно одну функцию привязать два объекта.*/
 
 User.prototype.info = function () {
-  console.log(this);
+  console.log(this.first_name, this.second_name, this.age, this.city);
 };
 
 mike.info();
