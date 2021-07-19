@@ -61,9 +61,7 @@ console.log(secondHouse);
 /* 5. Создайте метод calcArea который будет возвращать суммарную площадь всех этажей дома. Данный метод занести в прототип конструктора. Вызвать данный метод на каждом созданном объекте и результат записать в поле totalArea каждого объекта.*/
 
 HouseBuilder.prototype.calcArea = function () {
-  this.totalArea = function () {
-    return this.height * this.width * this.floors;
-  };
+  this.totalArea = this.length * this.width * this.floors;
 };
 
 firstHouse.calcArea();
