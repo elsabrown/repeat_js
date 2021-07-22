@@ -60,7 +60,7 @@ function cleanRoom(dirtyLevel) {
     if (dirtyLevel > 10) {
       setTimeout(() => resolve(dirtyLevel), dirtyLevel * 1000);
     } else {
-      setTimeout(() => reject('Что-то пошло не так'), dirtyLevel);
+      setTimeout(() => reject('Что-то пошло не так'));
     }
   });
 }
