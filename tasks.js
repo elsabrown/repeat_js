@@ -39,7 +39,7 @@ cleanRoom
 resolve.*/
 
 function cleanRoom(dirtyLevel) {
-  return new Promise (function resolve {
+  return new Promise (function (resolve, reject) {
     if (dirtyLevel > 10) {
       setTimeout(() => reject("Ошибка!"), dirtyLevel);
     } else {
