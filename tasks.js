@@ -14,26 +14,24 @@ let cleanRoom = new Promise((resolve, reject) => {
   }, 5000);
 });
 
-promise
-  then(
-  result => {
-    console.log(result);
-  },
-  error => {
-    console.log(error);
-  }
-);
+cleanRoom
+  .then(
+    result => console.log(result),
+    error => console.log('Ошибка')
+  );
 
 //вариант 2
-function cleanRoom() {
-  return new Promise((resolve) => {
-    setTimeout(() => resolve("Команата убрана"), 5000);
+function cleanRoom(){
+   return new Promise(resolve => {
+    setTimeout(() => 
+      resolve("Команата убрана"), 5000);
   });
 }
 
-cleanRoom().then(
+cleanRoom
+  .then(
   result => console.log(result),
-  error => console.log(error)
+  error => console.log('Ошибка')
 );
 
 /* 2. Напишите функцию уборки комнаты cleanRoom(dirtyLevel) { ... }, которая принимает на вход числовой показатель загрязнения комнаты (от 0 до 10). В зависимости от этого числа опеределяется сколько времени надо потратить на уборку, это время равно значению dirtyLevel * 1000 в мс. Данная функция возвращает успешно выполненный промис спустя указанное время dirtyLevel * 1000.
@@ -41,7 +39,7 @@ cleanRoom().then(
 resolve.*/
 
 function cleanRoom(dirtyLevel) {
-  return new Promise (function (resolve, reject) {
+  return new Promise (function resolve {
     if (dirtyLevel > 10) {
       setTimeout(() => reject("Ошибка!"), dirtyLevel);
     } else {
