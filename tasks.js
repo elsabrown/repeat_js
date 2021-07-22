@@ -28,8 +28,7 @@ function cleanRoom(){
   });
 }
 
-cleanRoom
-  .then(
+cleanRoom().then(
   result => console.log(result),
   error => console.log('Ошибка')
 );
