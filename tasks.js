@@ -77,15 +77,15 @@ let usersAfterYear = users
 
 console.log(usersAfterYear);
 
-let usersAfterYearUniqueAge = usersAfterYear.reduce((users, user) => {
-  //через findIndex вместо indexOf
-  if {
-    users.push(user);
-  }
-  return users;
-}, []);
-
-console.log(usersAfterYearUniqueAge);
+let usersAfterYearUniqueAge = usersAfterYear.reduce(
+  (a, b) => {
+    if (a.find((item) => item.age === b.age) === undefined) {
+      a.push(b);
+    }
+    return a;
+  },
+  [{}]
+);
 
 /* 4. Посчитать первые 8 чисел Фибоначчи использую рекурсию. Например: fibonachi(n); (При вызове функции положите n = 8); */
 
