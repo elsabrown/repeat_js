@@ -87,6 +87,8 @@ let usersAfterYearUniqueAge = usersAfterYear.reduce(
   [{}]
 );
 
+console.log(usersAfterYearUniqueAge);
+
 /* 4. Посчитать первые 8 чисел Фибоначчи использую рекурсию. Например: fibonachi(n); (При вызове функции положите n = 8); */
 
 let fibonachi = (n) => {
