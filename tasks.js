@@ -36,7 +36,19 @@ cleanRooms(3, 2, 7);
 	то пекращаем уборку полностью. Для этого функция cleanRooms(dirtyLevel_1, dirtyLevel_2, dirtyLevel_3) { ... } 
 	должна принимать три аргемента, каждый из кторых описывает уровень загрязнения каждой комнаты.*/
 
-function cleanRooms(dirtyLevel_1, dirtyLevel_2, dirtyLevel_3) {
+  function cleanRoom(dirtyLevel) {
+    return new Promise(function (resolve, reject) {
+      if (dirtyLevel < 10) {
+        setTimeout(() => resolve(dirtyLevel), dirtyLevel * 1000);
+      } else {
+        setTimeout(
+          () => reject("Поздно, мы потеряли эту комнату. Здесь слишком грзно")
+        );
+      }
+    });
+  }
+
+  function cleanRooms(dirtyLevel_1, dirtyLevel_2, dirtyLevel_3) {
  if (dirtyLevel_1 < 10 && dirtyLevel_2 < 10 && dirtyLevel_3 < 10) {
    cleanRoom(dirtyLevel_1)
     .then((result) => {
