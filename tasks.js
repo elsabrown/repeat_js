@@ -77,3 +77,4 @@ function cleanRooms(dirtyLevel_1, dirtyLevel_2, dirtyLevel_3) {
 }
 
 cleanRooms(3, 11, 4);
+cleanRooms(3, 1, 4);
