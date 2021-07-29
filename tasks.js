@@ -42,14 +42,14 @@ cleanRooms(3, 2, 7);
         setTimeout(() => resolve(dirtyLevel), dirtyLevel * 1000);
       } else {
         setTimeout(
-          () => reject("Поздно, мы потеряли эту комнату. Здесь слишком грзно")
+          () => reject('Здесь слишком грзно')
         );
       }
     });
   }
 
 function cleanRooms(dirtyLevel_1, dirtyLevel_2, dirtyLevel_3) {
- if (dirtyLevel_1 < 10 || dirtyLevel_2 < 10 || dirtyLevel_3 < 10) {
+ if (dirtyLevel_1 < 10 && dirtyLevel_2 < 10 && dirtyLevel_3 < 10) {
    cleanRoom(dirtyLevel_1)
     .then((result) => {
       return console.log(
